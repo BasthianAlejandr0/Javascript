@@ -15,39 +15,44 @@ let peticion2 = prompt('Ingrese un valor entero o decimal');
 let peticion3 = prompt('Ingrese un valor entero o decimal');
 let operacion = prompt('Ingrese una operación matemática entre: +, -, *, /, ** (potencia) o % (módulo)');
 
+let num1 = parseFloat(peticion1) || parseInt(peticion1);
+let num2 = parseFloat(peticion2) || parseInt(peticion2);
+let num3 = parseFloat(peticion3) || parseInt(peticion3);
 
-function validador(entero, decimal) {
-    if ((peticion1, peticion2, peticion3) === entero || (peticion1, peticion2, peticion3) === decimal) {
-        console.log(`Los valores ingresado son ${peticion1}, ${peticion2}, ${peticion3}`);
-        let suma = peticion1 + peticion2 + peticion3;
-        let resta = peticion1 - peticion2 - peticion3;
-        let multiplicacion = peticion1 * peticion2 * peticion3;
-        let division = peticion1 / peticion2 / peticion3;
-        let potencia = peticion1 ** (peticion2 ** peticion3);
-        let modulo = peticion1 % peticion2 % peticion3;
-        switch (operacion) {
-            case '+':
-                console.log(`El resultado de la suma es ${suma}`);
-                break;
-            case '-':
-                console.log(`El resultado de la resta es ${resta}`);
-                break;
-            case '*':
-                console.log(`El resultado de la multiplicación es ${multiplicacion}`);
-                break;
-            case '/':
-                console.log(`El resultado de la división es ${division}`);
-                break;
-            case '**':
-                console.log(`El resultado de la potencia es ${potencia}`);
-                break;
-            case '%':
-                console.log(`El resultado del módulo es ${modulo}`);
-                break;
-            default:
-                console.log('Operación no reconocida');
-                break;
-        }
+//1. mostrar tipo de dato
+console.log(`El tipo de dato de num1 es: ${typeof num1}, num2 es: ${typeof num2}, num3 es: ${typeof num3}`);
+
+function operation() {
+    switch(operacion){
+        case '+':
+            console.log(num1 + num2 + num3);
+            break;
+        case '-':
+            console.log(num1 - num2 - num3);
+            break;
+        case '*':
+            console.log(num1 * num2 * num3);
+            break;
+        case '**':
+            if(operacion === '**'){
+                console.log(num1 ** (num2 ** num3));
+            }
+        case '%':
+            if(operacion === '%'){
+                console.log(num1 % num2 % num3);
+            }
+        case '/':
+            if(num2 === 0 || num3 === 0){
+                console.log('No se puede dividir por 0');
+            }else{
+                console.log(num1 / num2 / num3);
+            }
+            break;
+        default:
+            console.log('Operación no valida');
+            break;
+
     }
 }
-validador(entero, decimal);
+
+operation();
